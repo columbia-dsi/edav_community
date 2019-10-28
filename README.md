@@ -11,6 +11,9 @@ Project for the EXPLORATORY DATA ANALYSIS And VISUALIZATION Course (fall 2019) t
 
 3. run the app:
     > SET DEBUG=edav-community:* & npm start
+   
+   Or simply:
+    > npm start
     
 
 ## Description/Goal of the Project
