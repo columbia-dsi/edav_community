@@ -27,7 +27,7 @@ Project for the EXPLORATORY DATA ANALYSIS And VISUALIZATION Course (fall 2019) t
 
 ## Community Contribution List
 #### 1. Github Contribution
-Contribute to edav.info
+Contribute to [edav.info](https://edav.info/)
 
 #### 2. Lighting Talk
 Give a well-rehearsed 5 minute lightning talk in class (live or video) on a data vis topic (theory or tool)
@@ -48,23 +48,23 @@ Be a Piazza super user (that is, answer a lot of questions)
 #### 5. Tutorial
 Write a tutorial for a tool that's not well documented
 <h4>How to share your R work?</h4>
-<b>1. Publish to share your R plots: (Quick, Simple and Free)</b>
+<b>- Publish to share your R plots: (Quick, Simple and Free)</b>
 <p>Rstudio -> html/pdf -> Deploy to Github (Host static)</p>
 <p>Demo repo is <a target="_blank" href="https://github.com/columbia-dsi/columbia-dsi.github.io">here</a>.</p>
 <hr/>
 
-<b>2. Release R Package, through <a target="_blank" href="http://r-pkgs.had.co.nz/release.html">cran</a> or <a target="_blank" href="https://github.com/r-lib/devtools">github</a></b>
+<b>- Release R Package, through <a target="_blank" href="http://r-pkgs.had.co.nz/release.html">cran</a> or <a target="_blank" href="https://github.com/r-lib/devtools">github</a></b>
 <p>RStudio -> Cran/Github </p>
 <hr/>
 
-<b>3. Deploy R model to Azure ML Studio (The Simplest Way) </b>
+<b>- Deploy R model to Azure ML Studio (The Simplest Way) </b>
 <p>RStduio -> Azure ML Studio</p>
-<img src="https://raw.githubusercontent.com/columbia-dsi/edav_community/master/public/data/R-AzureML.PNG" />
+![R-AzureML](https://raw.githubusercontent.com/columbia-dsi/edav_community/master/public/data/R-AzureML.PNG)
 <hr/>
 
-<b>4. Deploy R model to Web Service (The Structed Way)</b>
+<b>- Deploy R model to Web Service (The Structed Way)</b>
 <p>RStduio -> New R Package -> Azure ML Studio -> Publishing Web Service</p>
-<img src="https://raw.githubusercontent.com/columbia-dsi/edav_community/master/public/data/R-Webservice.PNG" />
+![R-Webservice](https://raw.githubusercontent.com/columbia-dsi/edav_community/master/public/data/R-Webservice.PNG)
 
 #### 6. Translate
 Translate a useful resource into another language
@@ -87,7 +87,7 @@ Create a web site for sharing class resources publicly
 #### 9. Subject
 Provide significant subject matter help to a classmate
 <p>Under Idea "ShareYouRWork" - How to share your R work?</p>
-<p>Subject: Release R paackge</p>
+<p>Subject: Release R package</p>
 
 #### 10. Workshop
 Organize and lead a help session on a particular topic
@@ -97,7 +97,7 @@ Organize and lead a help session on a particular topic
 #### 11. Own Idea
 Share your own idea
 <p>Idea "ShareYouRWork"</p>
-<img src="https://raw.githubusercontent.com/columbia-dsi/edav_community/master/public/data/ShareYouRWork.PNG" />
+![ShareYouRWork](https://raw.githubusercontent.com/columbia-dsi/edav_community/master/public/data/ShareYouRWork.PNG)
 
 ## Important Links
 
