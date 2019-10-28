@@ -15,7 +15,7 @@ Project for the EXPLORATORY DATA ANALYSIS And VISUALIZATION Course (fall 2019) t
    Or simply:
     > npm start
 
-4. Open browser, navigate to -> localhost:3000
+4. Open browser, navigate to -> http://localhost:3000
 
 ## Description/Goal of the Project
 
