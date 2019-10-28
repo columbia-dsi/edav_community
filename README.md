@@ -3,18 +3,19 @@
 Project for the EXPLORATORY DATA ANALYSIS And VISUALIZATION Course (fall 2019) taught by Prof. Joyce Robbins
 
 ## Quick Start
-1. change directory:
+1. Change directory:
     > cd edav_community
 
-2. install dependencies:
+2. Install dependencies:
     > npm install
 
-3. run the app:
+3. Run the app:
     > SET DEBUG=edav-community:* & npm start
    
    Or simply:
     > npm start
-    
+
+4. Open browser, navigate to -> localhost:3000
 
 ## Description/Goal of the Project
 
