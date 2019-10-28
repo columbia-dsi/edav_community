@@ -97,7 +97,7 @@ Organize and lead a help session on a particular topic
 Share your own idea
 <p>Idea "ShareYouRWork"</p>
 
-![ShareYouRWork](https://raw.githubusercontent.com/columbia-dsi/edav_community/master/public/data/ShareYouRWork.PNG)
+![ShareYouRWork](https://raw.githubusercontent.com/columbia-dsi/edav_community/master/public/data/ShareYouRWork.png)
 
 ## Important Links
 
