@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <script>
+      function showOrHide(id){
+        var x = document.getElementById('box-'+id);
+        if (x.style.display === "none" || x.style.display === "") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      }
+    </script>
+    <h1><%= title %></h1>
+    <p>Author: <%= author %></p>
+   
+    <h3>1. <span class="title" onclick="showOrHide(1)">Github Contribution</span> * </h3>
+    <p>Contribute to edav.info</p>
+    <div id="box-1" class="box">
+      <p>PR</p>
+    </div>
+
+    <h3>2. <span class="title" onclick="showOrHide(2)">Lighting Talk</span> * </h3>
+    <p>Give a well-rehearsed 5 minute lightning talk in class (live or video) on a data vis topic (theory or tool)</p>
+    
+    <div id="box-2" class="box">
+      <p>Title: Virtual Lab Tool for Computational Social Science Study</p>
+      <p>Discription: The "Virtual Lab" refers to using software controlled experiments with Internet participants to overcome many of the limitations of traditional ab experiments. To help researchers study more complex tasks and set up interactions that happen over longer periods of time or among larger numbers of people. This allows us to design behavioral experiments and visualize data that would have been very hard to do in the past.
+      </p>
+      <p>Poster: <a target="_blank" href="/data/2019-08-01-Virtual_Lab_Tool-Kevin_Gao.pdf">Virtuallab</a></p>
+      <p>Open Source tool: <a target="_blank" href="https://turkserver.readthedocs.io/en/latest/intro.html#what-is-turkserver">Turkserver</a></p>
+     </div>
+
+    
+    <h3>3. <span class="title" onclick="showOrHide(3)">Cheatsheet</span> </h3>
+    <p>Create a cheatsheet or other resource</p>
+    <div id="box-3" class="box">
+       <p>Build a grammar mapper table showing equavelent b/w R ggplot2, matplotlib.pyplot and D3.js, download <a target="_blank" href="/data/GrammarMapper_ggplot2+pyplot+d3.PNG">here</a>.</p>
+        <table>
+            <tr>
+              <th>ggplot2</th>
+              <th>pyplot</th>
+              <th>d3</th>
+            </tr>
+            <tr>
+              <td>ggplot(data, aes(x, y))</td>
+              <td>ax = plt.axes()</td>
+              <td>d3.select(“.chart”).selectAll(“div”).data(data)</td>
+            </tr>
+            <tr>
+              <td>+ geom_point(alpha)</td>
+              <td>plt.scatter(x, y, alpha)</td>
+              <td>d3.select("svg").append("circle")</td>
+            </tr>
+            <tr>
+              <td>+ xlim(c(0, 1)) + ylim(c(0,1))</td>
+              <td>plt.axes(xlim=(0,1), ylim=(0,1))</td>
+              <td>d3.scale.linear().domain([0, 1]), d3.scale.linear().scale.range([0, 1])</td>
+            </tr>
+            <tr>
+              <td>+ ggtitle(Title)</td>
+              <td>ax.set_title(Title)</td>
+              <td>.append("text")</td>
+            </tr>
+            <tr>
+              <td>+ xlab("x") + ylab("y")</td>
+              <td>ax.set_xlabel("x"), ax.set_ylabel("y")</td>
+              <td>.attr("class", "x axis").call(x).text("x"), .attr("class", "y axis").call(y).text("y")</td>
+            </tr>
+            <tr>
+              <td>+ scale_x_continuous(breaks=seq(0, 0.1, 0.01))</td>
+              <td>ax.set_xscale(), ax.set_yscale()</td>
+              <td>d3.svg.axis().scale(xScale), d3.svg.axis().scale(yScale)</td>
+            </tr>
+            <tr>
+              <td>+ labs(color, size)</td>
+              <td>ax.legend(*scatter.legend_elements(number), title)</td>
+              <td>.style("fill", "teal")</td>
+            </tr>
+            <tr>
+              <td>+ theme(legend.position="left")</td>
+              <td>ax.legend(handles, labels, loc="left",title)</td>
+              <td>.classed("legend-left", true)</td>
+            </tr>
+
+            <tr>
+              <td>+ geom_point(aes(col(or)))</td>
+              <td>ax.scatter(x, y, c=color, label=color???),  ax.legend() plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)</td>
+              <td>d3.select("svg").selectAll(".dot").data(data).enter().append("circle")</td>
+            </tr>
+            <tr>
+              <td>+ geom_bar(stat="identity", widt, fill="tomato2")</td>
+              <td>ax.bar( x, height, width, data=”tomato2”)  </td>
+              <td>d3.select(".chart").selectAll("div").data(data).enter().append("div")</td>
+            </tr>
+            <tr>
+              <td>+ geom_bar(aes(fill=data), width = 0.5)</td>
+              <td>ax2.bar(x, height, width, color='yellow') + ax2.bar(x, height, width, color='green')</td>
+              <td>d3.svg.selectAll(".layer").data(layers).enter().append("g").attr("class", "layer").style("fill", function(d, i){ return z(i);});</td>
+            </tr>
+            <tr>
+              <td>+geom_line(aes(x,y))</td>
+              <td>plt.plot([1, 2, 3, 4], [1, 4, 9, 16])</td>
+              <td>d3.line().x().y().curve()</td>
+            </tr>
+            <tr>
+              <td>+coord_flip()</td>
+              <td>ax2.barh(x, height, width, color)</td>
+              <td>d3.select(this).classed("rotate").style(” transform”: rotate(-90deg);)</td>
+            </tr>
+            <tr>
+              <td>+ geom_vline(xintercept=data, linetype="dashed", size=.1)</td>
+              <td>ax.vlines(x, ymin, ymax, colors='k', linestyles=dashed, data)</td>
+              <td>d3.line().defined(d => !isNaN(d.value)).x(d => x(d.value)).y(d => y(d.value))</td>
+            </tr>
+            <tr>
+              <td>+ geom_boxplot(varwidth=T, aes(fill=factor(data)))</td>
+              <td>ax.boxplot(data)</td>
+              <td>d3.svg.selectAll("toto").data([min, median, max]).enter().append("line")</td>
+            </tr>
+            <tr>
+              <td>+ geom_histogram(aes(fill=class), binwidth, col)</td>
+              <td>pyplot.hist()</td>
+              <td>d3.svg.selectAll("rect").data(bins).enter().append("rect")</td>
+            </tr>
+          </table>
+    </div>
+
+
+
+
+
+    <h3>4. <span class="title" onclick="showOrHide(4)">Piazza Super User </span> </h3>
+    <p>Be a Piazza super user (that is, answer a lot of questions)</p>
+    <div id="box-4" class="box">
+      <img src="/data/SuperUser1.PNG" />
+      <!--TODO: Add SuperUser2 -->
+    </div>
+    <h3>5. <span class="title" onclick="showOrHide(5)">Tutorial</span> * </h3>
+    <p>Write a tutorial for a tool that's not well documented</p>
+    <div id="box-5" class="box">
+      <h4>How to share your R work?</h4>
+      <b>1. Publish to share your R plots: (Quick, Simple and Free)</b>
+      <p>Rstudio -> html/pdf -> Deploy to Github (Host static)</p>
+      <p>Demo repo is <a target="_blank" href="https://github.com/columbia-dsi/columbia-dsi.github.io">here</a>.</p>
+      <hr/>
+      
+      <b>2. Release R Package, through <a target="_blank" href="http://r-pkgs.had.co.nz/release.html">cran</a> or <a target="_blank" href="https://github.com/r-lib/devtools">github</a></b>
+      <p>RStudio -> Cran/Github </p>
+      <hr/>
+      
+      <b>3. Deploy R model to Azure ML Studio (The Simplest Way) </b>
+      <p>RStduio -> Azure ML Studio</p>
+      <img src="/data/R-AzureML.PNG" />
+      <hr/>
+
+      <b>4. Deploy R model to Web Service (The Structed Way)</b>
+      <p>RStduio -> New R Package -> Azure ML Studio -> Publishing Web Service</p>
+      <img src="/data/R-Webservice.PNG" />
+      <!--TODO: replace predictoR -->
+
+    </div>
+    <h3>6. <span class="title" onclick="showOrHide(6)">Translate</span> * </h3>
+    <p>Translate a useful resource into another language</p>
+    <div id="box-6" class="box">
+        <p>Customize a NLP (Data Science Resource) Based Browser Translate Extension, interact with users and gather feedbacks.</p>
+        <p>Reference: <a target="_blank" href="https://portal.customtranslator.azure.ai/">Custom Translator</a></p>
+
+        <p>Design a package to translate any R dataset into any language.</p>
+        <p>Find existing cran package: <a target="_blank" href="https://github.com/cran/translateR">TranslateR</a>.</p>
+        <p>Examples:</p> 
+        <pre>
+            data(enron)
+            # Google, translate column in dataset
+            google.dataset.out <- translate(dataset = enron,
+                                            content.field = 'email',
+                                            google.api.key = my.api.key,
+                                            source.lang = 'en',
+                                            target.lang = 'de')
+            # Google, translate vector
+            google.vector.out <- translate(content.vec = enron$email,
+                                          google.api.key = my.api.key,
+                                          source.lang = 'en',
+                                          target.lang = 'de')
+            # Microsoft, translate column in dataset
+            google.dataset.out <- translate(dataset = enron,
+                                            content.field = 'email',
+                                            microsoft.client.id = my.client.id,
+                                            microsoft.client.secret =
+                                            my.client.secret,
+                                            source.lang = 'en',
+                                            target.lang = 'de')
+            # Microsoft, translate vector
+            google.vector.out <- translate(content.vec = enron$email,
+                                          microsoft.client.id = my.client.id,
+                                          microsoft.client.secret =
+                                          my.client.secret,
+                                          source.lang = 'en',
+                                          target.lang = 'de')
+            ## End(Not run)
+        </pre>
+    </div>
+    <h3>7. <span class="title" onclick="showOrHide(7)">Viz Product</span> * </h3>
+    <p>Build a viz product (ex. htmlwidget) for class use</p>
+    <div id="box-7" class="box">
+        <p>Use R Markdown to publish a group of related data visualizations as a <a target="_blank" href="https://rmarkdown.rstudio.com/flexdashboard/">dashboard</a>.</p>
+        <p>Support for a wide variety of components including <a target="_blank" href="https://www.htmlwidgets.org">htmlwidgets</a>; base, lattice, and grid graphics; tabular data; gauges and value boxes; and text annotations.</p>
+        <p>Develop new widgets using a framework that seamlessly bridges R and JavaScript</p>
+    </div>
+    <h3>8. <span class="title" onclick="showOrHide(8)">Website</span> </h3>
+    <p>Create a web site for sharing class resources publicly</p>
+    <div id="box-8" class="box">
+      <p>Demo website for sharing: <a target="_blank" href="https://github.com/columbia-dsi/columbia-dsi.github.io">columbia-dsi.github.io</a>.</p>
+    </div>
+    <h3>9. <span class="title" onclick="showOrHide(9)">Subject</span> * </h3>
+    <p>Provide significant subject matter help to a classmate</p>
+    <div id="box-9" class="box">
+      <p>Under Idea "ShareYouRWork" - How to share your R work?</p>
+      <p>Subject: Release R paackge</p>
+    </div>
+    <h3>10. <span class="title" onclick="showOrHide(10)">Workshop</span> * </h3>
+    <p>Organize and lead a help session on a particular topic</p>
+    <div id="box-10" class="box">
+      <p>Under Idea "ShareYouRWork" - How to share your R work?</p>
+      <p>Workshop: Deploy R model to Web Service </p>
+    </div>
+
+    <h3>11. <span class="title" onclick="showOrHide(11)">Own Idea</span> </h3>
+    <p>Share your own idea</p>
+    <div id="box-11" class="box">
+        <p>Idea "ShareYouRWork"</p>
+        <img src="/data/ShareYouRWork.PNG" />
+    </div>
+
+    <h3>Useful Resources</h3>
+    <p><a target="_blank" href="http://ropensci.github.io/plotly/ggplot2/index.html">ggplot2 helper</a></p>
+    <p><a target="_blank" href="https://azure.microsoft.com/en-us/resources/videos/r-in-ml-studio/">Using R in Azure ML Studio</a></p>
+    <p><a target="_blank" href="https://docs.microsoft.com/en-us/azure/architecture/data-guide/technology-choices/r-developers-guide">R developer guide to Azure</a></p>
+    <p><a target="_blank" href="https://docs.microsoft.com/en-us/machine-learning-server/operationalize/quickstart-publish-r-web-service">Deploy R model as web service</a></p>
+    
+  </body>
+</html>

@@ -1,0 +1,57 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.title {
+  border: 2px solid grey;
+  border-radius: 10px;
+  padding: 5px;
+  width: fit-content;
+  /*non-select*/
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+
+.title:hover {
+  cursor: pointer 
+}
+
+.box {
+  border: 1px solid grey;
+  border-radius: 2px;
+  padding: 10px;
+  display: none;
+}
+
+.box img {
+  width: 50%;
+}
+
+.box table, td, th {  
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.box table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.box th, td {
+  padding: 15px;
+}
+
+.box tr:nth-child(even) {
+  /* striped table*/
+  background-color: #f2f2f2;
+}
