@@ -26,8 +26,8 @@ Project for the EXPLORATORY DATA ANALYSIS And VISUALIZATION Course (fall 2019) t
 #### Course Play Ground
 [edav.info](https://edav.info/)
 #### Cheatsheet
-[ggplots=pyplot-d3](https://github.com/columbia-dsi/edav_community/data/GrammarMapper_ggplot2+pyplot+d3.PNG)
+[ggplots-pyplot-d3](https://raw.githubusercontent.com/columbia-dsi/edav_community/master/public/data/GrammarMapper_ggplot2%2Bpyplot%2Bd3.PNG)
 #### Shared Repo
 [columbia-dsi.github.io](https://columbia-dsi.github.io)</a></p>
-#### Model Deploy
+#### Model Deployment
 [R in Azure ML Studio](https://azure.microsoft.com/en-us/resources/videos/r-in-ml-studio/)</a></p>
