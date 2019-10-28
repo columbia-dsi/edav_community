@@ -58,12 +58,12 @@ Write a tutorial for a tool that's not well documented
 <b>- Deploy R model to Azure ML Studio (The Simplest Way) </b>
 <p>RStduio -> Azure ML Studio</p>
 
-![R-AzureML](https://raw.githubusercontent.com/columbia-dsi/edav_community/master/public/data/R-AzureML.PNG)
+![R-AzureML](https://raw.githubusercontent.com/columbia-dsi/edav_community/master/public/data/R-AzureML.png)
 
 <b>- Deploy R model to Web Service (The Structed Way)</b>
 <p>RStduio -> New R Package -> Azure ML Studio -> Publishing Web Service</p>
 
-![R-Webservice](https://raw.githubusercontent.com/columbia-dsi/edav_community/master/public/data/R-Webservice.PNG)
+![R-Webservice](https://raw.githubusercontent.com/columbia-dsi/edav_community/master/public/data/R-Webservice.png)
 
 #### 6. Translate
 Translate a useful resource into another language
