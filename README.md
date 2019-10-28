@@ -51,19 +51,18 @@ Write a tutorial for a tool that's not well documented
 <b>- Publish to share your R plots: (Quick, Simple and Free)</b>
 <p>Rstudio -> html/pdf -> Deploy to Github (Host static)</p>
 <p>Demo repo is <a target="_blank" href="https://github.com/columbia-dsi/columbia-dsi.github.io">here</a>.</p>
-<hr/>
 
 <b>- Release R Package, through <a target="_blank" href="http://r-pkgs.had.co.nz/release.html">cran</a> or <a target="_blank" href="https://github.com/r-lib/devtools">github</a></b>
 <p>RStudio -> Cran/Github </p>
-<hr/>
 
 <b>- Deploy R model to Azure ML Studio (The Simplest Way) </b>
 <p>RStduio -> Azure ML Studio</p>
+
 ![R-AzureML](https://raw.githubusercontent.com/columbia-dsi/edav_community/master/public/data/R-AzureML.PNG)
-<hr/>
 
 <b>- Deploy R model to Web Service (The Structed Way)</b>
 <p>RStduio -> New R Package -> Azure ML Studio -> Publishing Web Service</p>
+
 ![R-Webservice](https://raw.githubusercontent.com/columbia-dsi/edav_community/master/public/data/R-Webservice.PNG)
 
 #### 6. Translate
@@ -97,6 +96,7 @@ Organize and lead a help session on a particular topic
 #### 11. Own Idea
 Share your own idea
 <p>Idea "ShareYouRWork"</p>
+
 ![ShareYouRWork](https://raw.githubusercontent.com/columbia-dsi/edav_community/master/public/data/ShareYouRWork.PNG)
 
 ## Important Links
