@@ -25,6 +25,40 @@ Project for the EXPLORATORY DATA ANALYSIS And VISUALIZATION Course (fall 2019) t
 * 4. Share sources with classmates.
 * 5. Contribute to EDAV community.
 
+## Community Contribution List
+1. Github Contribution
+Contribute to edav.info
+
+2. Lighting Talk
+Give a well-rehearsed 5 minute lightning talk in class (live or video) on a data vis topic (theory or tool)
+
+3. Cheatsheet
+Create a cheatsheet or other resource
+
+4. Piazza Super User
+Be a Piazza super user (that is, answer a lot of questions)
+
+5. Tutorial
+Write a tutorial for a tool that's not well documented
+
+6. Translate
+Translate a useful resource into another language
+
+7. Viz Product
+Build a viz product (ex. htmlwidget) for class use
+
+8. Website
+Create a web site for sharing class resources publicly
+
+9. Subject
+Provide significant subject matter help to a classmate
+
+10. Workshop
+Organize and lead a help session on a particular topic
+
+11. Own Idea
+Share your own idea
+
 ## Important Links
 
 #### Course Play Ground
