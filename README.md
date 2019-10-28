@@ -48,7 +48,7 @@ Be a Piazza super user (that is, answer a lot of questions)
 #### 5. Tutorial
 Write a tutorial for a tool that's not well documented
 <h4>How to share your R work?</h4>
-<b>- Publish to share your R plots: (Quick, Simple and Free)</b>
+<b>- Publish and share your R plots: (Quick, Simple and Free)</b>
 <p>Rstudio -> html/pdf -> Deploy to Github (Host static)</p>
 <p>Demo repo is <a target="_blank" href="https://github.com/columbia-dsi/columbia-dsi.github.io">here</a>.</p>
 
