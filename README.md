@@ -4,7 +4,7 @@ Project for the EXPLORATORY DATA ANALYSIS And VISUALIZATION Course (fall 2019) t
 
 ## Quick Start
 1. change directory:
-    > cd myapp
+    > cd edav_community
 
 2. install dependencies:
     > npm install
