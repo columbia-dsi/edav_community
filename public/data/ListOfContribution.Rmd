@@ -1,6 +1,6 @@
 # List of Community Contribution
 
-#### Authors: Kevin Gao (wg2311) and Haibo Yu (hy2628)
+Kevin Gao (wg2311) and Haibo Yu (hy2628)
 
 We have tried many different things from the list, including:
 
