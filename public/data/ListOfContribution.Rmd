@@ -1,8 +1,3 @@
----
-output:
-  html_document: default
-  pdf_document: default
----
 # List of Community Contribution
 
 #### Authors: Kevin Gao (wg2311) and Haibo Yu (hy2628)
