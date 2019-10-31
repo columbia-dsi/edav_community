@@ -1,0 +1,67 @@
+
+<ol start="1">
+    <li style="text-align: justify;">Login <a target="_blank" href="https://studio.azureml.net/">studio.azureml.net</a>, and create a project</li>
+    <p>Projects > Create project</p>
+    <p><img src="/images/ml-1.PNG"/></p>
+</ol>
+
+<ol start="2">
+    <li style="text-align: justify;">Add an experiment</li>
+    <p>Experiments > "+ NEW"</p>
+    <p>You can either start with bland experiment or following by the experiment tutorial (recommended the tutorial there, you can jump to next session, otherwise stay here) </p>
+    <p><img src="/images/ml-2.PNG"/></p>
+</ol>
+
+
+<ol start="3">
+    <li style="text-align: justify;">If we click blank experiment</li>
+    <p>And search and drop an 'Execute R Script' module</p>
+    <p><img src="/images/ml-3.PNG"/></p>
+</ol>
+
+
+
+<ol start="4">
+    <li style="text-align: justify;">Click right arrow, modify the content of R script</li>
+    <p>Replace the code with your own, i.e. A test predictor code</p>
+    <pre>
+        # Modify it like this, as a test:
+        # Map 1-based optional input ports to variables
+        require(MASS)
+        library(randomForest)
+        
+        df <- Boston[1:10,]
+        
+        data(Boston, package="MASS")
+        
+        # train a model for median house price
+        train_data <- Boston[11:nrow(Boston),]
+        bos.rf <- randomForest(medv ~ ., data=train_data, ntree=100)
+        
+        prediction <- data.frame( predicted=predict(bos.rf, df) )
+        
+        maml.mapOutputPort("prediction");
+    </pre>
+    <p><img src="/images/ml-4.PNG"/></p>
+</ol>
+
+
+<ol start="5">
+    <li style="text-align: justify;">Then hit Run</li>
+    <p>Execute the R script in Azure ML Studio</p>
+    <p><img src="/images/ml-5.PNG"/></p>
+</ol>
+
+
+
+<ol start="6">
+    <li style="text-align: justify;">Right click output dataset -> visualize</li>
+    <p>You can see prediction's statistics, visualizations </p>
+    <p><img src="/images/ml-6.PNG"/></p>
+    <p><img src="/images/ml-7.PNG"/></p>
+    <p><img src="/images/ml-8.PNG"/></p>
+</ol>
+    
+    
+
+

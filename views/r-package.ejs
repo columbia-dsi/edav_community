@@ -1,0 +1,175 @@
+<h3>2.1 Writing your first package from scratch</h3>
+<p style="text-align: justify;">Now let’s get started with creating a simple package of our own. Within this package, we’ll create a function to offer the functionality of predicting the stock price movement for tomorrow using simple logistic regression given the stock symbol. Simple enough. Let’s begin!</p>
+<ol>
+<li>Create a new project by going to File &gt; New Project.</li>
+<p><img src="/images/rp-1.PNG"/></p>
+</ol>
+
+<ol start="2">
+<li style="text-align: justify;">When choosing an existing directory, create a new one. Then choose the project type as R package.</li>
+<p><img src="/images/rp-2.PNG"/></p>
+</ol>
+
+<ol start="3">
+<li style="text-align: justify;">Choose an appropriate name for your package. i.e.<strong>stockPredictor</strong> here. (Note: Here you can also choose the appropriate subdirectory that you want to store the project in.)</li>
+<p><img src="/images/rp-3.PNG"/></p>
+</ol>
+
+<ol start="4">
+<li style="text-align: justify;">This will create the following files in the directory. Note: All the code will be stored in R folder while the manual and supporting documents will be stored in main folder.</li>
+<p><img src="/images/rp-4.PNG"/></p>
+</ol>
+
+<ol start="5">
+<li style="text-align: justify;">Open the DESCRIPTION file within R studio and edit the contents to best match your package description. Then save it. For this package, this is what I did.</li>
+<p><img src="/images/rp-5.PNG"/></p>
+</ol>
+
+<ol start="6">
+<li style="text-align: justify;">If your package uses functions from some other package, then you should also include another field named Imports. i.e, we are going to use functions from quantmod, stats and xts packages. There are two more fields: Depends and Suggest. When you use Imports and Depends, you mention that the user must have these packages installed for your package to work smoothly. The only difference between Imports and Depends is that Depends loads and attach the package functions, while Import only loads the package functions. You should almost always use Imports to avoid any function name masking issues. Suggests involves the library which might be required for running the examples or generating documentation. The final description file for this package looks like this: </li>
+<p><img src="/images/rp-6.PNG"/></p>
+</ol>
+
+<ol start="7">
+<li style="text-align: justify;">Go into the R folder and you’ll find hello.R script already present there. Open the hello.R script.</li>
+<p><img src="/images/rp-7.PNG"/></p>
+</ol>
+
+<ol start="8">
+<li>Now, you need to replace the contents of hello.R with:</li>
+<pre style="padding-left: 60px;">#' @title
+#'
+#' @description
+#'
+#' @param
+#'
+#' @return
+#'
+#' @examples
+#'
+#' @export</pre>
+<p style="padding-left: 30px;">Here,</p>
+<ul>
+<li>The ‘title’ field will contain the title of the package.</li>
+<li>The ‘description field is for detailed explanation of what the package does.</li>
+<li style="text-align: justify;">The ‘param’ field will contain the parameters that we’ll take in the functions offered by the package. If there are multiple parameters, you can use multiple ‘param’ fields to specify each one separately.</li>
+<li>In the ‘return’ field you will mention the object that will be returned from your function.</li>
+<li style="text-align: justify;">The ‘examples’ field will contain the demonstration examples of the function(s) that you offer in your package.</li>
+<li style="text-align: justify;">The ‘export’ field will contain the function names that you want the end user to access. You can also hide certain functions from your code that you don’t want to offer by not mentioning them here.</li>
+</ul>
+    <p>Now the hello.R looks like:</p>
+    <p><img src="/images/rp-8.PNG"/></p>
+</ol>
+
+<ol start="9">
+<li style="text-align: justify;">Now it’s time to write the function that will actually predict the stock price movement given the stock symbol. This function ‘predict_stock’ has to be written in the hello.R file itself under the export field. This is the what the hello.R file looks like after writing the function:</li>
+</ol>
+<pre style="padding-left: 30px;">#' @title Predict Stock Price
+#'
+#' @description This package help you predics whether the stock price would be higher or lower at tomorrow's closing compared to today's closing.
+#'
+#' @param symbol
+#'
+#' @return NULL
+#'
+#' @examples predict_stock('MSFT')
+#'
+#' @export predict_stock
+predict_stock&lt;-function(symbol)
+{
+
+#To ignore the warnings during usage
+options(warn=-1)
+options("getSymbols.warning4.0"=FALSE)
+#Importing price data for the given symbol
+data&lt;-data.frame(xts::as.xts(get(quantmod::getSymbols(symbol))))
+
+#Assighning the column names
+colnames(data) &lt;- c("data.Open","data.High","data.Low","data.Close","data.Volume","data.Adjusted")
+
+#Creating lag and lead features of price column.
+data &lt;- xts::xts(data,order.by=as.Date(rownames(data)))
+data &lt;- as.data.frame(merge(data, lm1=stats::lag(data[,'data.Adjusted'],c(-1,1,3,5,10))))
+
+#Extracting features from Date
+data$Date&lt;-as.Date(rownames(data))
+data$Day_of_month&lt;-as.integer(format(as.Date(data$Date),"%d"))
+data$Month_of_year&lt;-as.integer(format(as.Date(data$Date),"%m"))
+data$Year&lt;-as.integer(format(as.Date(data$Date),"%y"))
+data$Day_of_week&lt;-as.factor(weekdays(data$Date))
+
+#Naming variables for reference
+today &lt;- 'data.Adjusted'
+tommorow &lt;- 'data.Adjusted.5'
+
+#Creating outcome
+data$up_down &lt;- as.factor(ifelse(data[,tommorow] &gt; data[,today], 1, 0))
+
+#Creating train and test sets
+train&lt;-data[stats::complete.cases(data),]
+test&lt;-data[nrow(data),]
+
+#Training model
+model&lt;-stats::glm(up_down~data.Open+data.High+data.Low+data.Close+
+data.Volume+data.Adjusted+data.Adjusted.1+
+data.Adjusted.2+data.Adjusted.3+data.Adjusted.4+
+Day_of_month+Month_of_year+Year+Day_of_week,
+family=binomial(link='logit'),data=train)
+
+#Making Predictions
+pred&lt;-as.numeric(stats::predict(model,test[,c('data.Open','data.High','data.Low','data.Close','data.Volume','data.Adjusted','data.Adjusted.1','data.Adjusted.2','data.Adjusted.3','data.Adjusted.4','Day_of_month','Month_of_year','Year','Day_of_week')],type = 'response'))
+
+#Printing results
+print("Probability of Stock price going up tommorow:")
+print(pred)
+}</pre>
+<ol start="11">
+<li style="text-align: justify;">Great! You have almost written your first package. Now, to make sure that your testing module is properly set up to simulate CRAN checks, go to Build &gt; Configure Build Tools.</li>
+<p><img src="/images/rp-9.PNG"/></p>
+</ol>
+
+<p style="text-align: justify;">Now check the “Generate documentation with Roxygen” option and put “–as-cran” under Check Package space to simulate the CRAN package checking and testing.</p>
+<p><img src="/images/rp-10.PNG"/></p>
+
+<ol start="12">
+<li style="text-align: justify;">Before moving forward, I’ll suggest you to go to the R folder and rename hello.R to stockPredictor.R</li>
+</ol>
+<ol start="13">
+<li style="text-align: justify;">Open the name space file and make sure that it says: exportPattern("^[[:alpha:]]+") If yours is different, then you should make it similar to this one:</li>
+<p><img src="/images/rp-11.PNG"/></p>
+</ol>
+
+<ol start="14">
+<li style="text-align: justify;">We are done now. You just need to go into Build &gt; Clean and Rebuild. Clicking on this will build the package and load it in the current environment.</li>
+<p><img src="/images/rp-12.PNG"/></p>
+</ol>
+
+<ol start="15">
+<li style="text-align: justify;">Let's try the example we specified and see what is the probability that the tomorrow's closing price for the Microsoft stock will be higher than today’s closing price.</li>
+<li>Type example(predict_stock) in your console</li>
+<p><img src="/images/rp-13.PNG"/></p>
+</ol>
+
+<ol start="16">
+<li style="text-align: justify;">Let's now use the package that we just created for finding probability of some other stocks' price at tomorrow's closing will be higher than today’s closing price.</li>
+<p><img src="/images/rp-14.PNG"/></p>
+</ol>
+
+<p>&nbsp;</p>
+<h3>2.2. Publishing a package</h3>
+<p style="text-align: justify;">As you have successfully created a package in R, you’ll like to share it with others to let them use the functions in your package. For the process of publishing a package, there are two popular platforms: CRAN and GitHub.</p>
+<p>&nbsp;</p>
+<h3 style="text-align: justify;">2.2.1 Publishing your package on CRAN</h3>
+<p style="text-align: justify;">Getting your package on CRAN is a difficult task due to the extensive and rigorous testing carried out on the packages before they can be published on CRAN. Along with passing these tests, you need to have comprehensive vignettes describing the working of your package. These vignettes will be stored in vignettes folder that you can create in the main project directory.</p>
+<p style="text-align: justify;">Once you’re sure that your package is doing well against the local simulation tests and is well documented, you need to create the source package by going to Build &gt; Build Source Package.</p>
+<p><img src="/images/rp-15.PNG"/></p>
+<p>After the source package is created, you can then submit an application to publish it on CRAN <a target="_blank" href="https://cran.r-project.org/submit.html" rel="nofollow">here</a>.</p>
+<p>&nbsp;</p>
+<h3>2.2.2 Publishing your package on GitHub</h3>
+<p style="text-align: justify;">Generally, a much easier way to make your package public is to publish it on GitHub. The simplest way to publish your package on GitHub is to create a new repository and upload the contents of the main folder (stockPredictor in our case) to that repository. I have done the same <a target="_blank" href="https://github.com/columbia-dsi/stockPredictor" rel="nofollow">here</a>.</p>
+<p>Now, anyone can install and use this package using the following command:</p>
+<p>devtools::install_github(&#8220;columbia-dsi/stockPredictor&#8221;)</p>
+<p><img src="/images/rp-16.PNG"/></p>
+<p>&nbsp;</p>
+
+<p>(Reference: <a href="https://github.com/sauravkaushik8">Saurav Kaushik</a> for R package samplecode and more detailed tutorial)</p>

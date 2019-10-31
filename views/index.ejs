@@ -140,25 +140,27 @@
     <h3>5. <span class="title" onclick="showOrHide(5)">Tutorial</span> * </h3>
     <p>Write a tutorial for a tool that's not well documented</p>
     <div id="box-5" class="box">
-      <h4>How to share your R work?</h4>
-      <b>1. Publish and share your R plots: (Quick, Simple and Free)</b>
+      <h1>How to share your R work?</h1>
+      <h2>1. Publish and share your R plots: (Quick, Simple and Free)</h2>
       <p>Rstudio -> html/pdf -> Deploy to Github (Host static)</p>
       <p>Demo repo is <a target="_blank" href="https://github.com/columbia-dsi/columbia-dsi.github.io">here</a>.</p>
       <hr/>
       
-      <b>2. Release R Package, through <a target="_blank" href="http://r-pkgs.had.co.nz/release.html">cran</a> or <a target="_blank" href="https://github.com/r-lib/devtools">github</a></b>
-      <p>RStudio -> Cran/Github </p>
+      <h2>2. Release R Package, through <a target="_blank" href="http://r-pkgs.had.co.nz/release.html">cran</a> or <a target="_blank" href="https://github.com/r-lib/devtools">github</a></h2>
+      <p>RStudio -> R Package -> Cran/Github </p>
+      <% include r-package.ejs %>
       <hr/>
       
-      <b>3. Deploy R model to Azure ML Studio (The Simplest Way) </b>
+      <h2>3. Deploy R model to Azure ML Studio (The Simplest Way) </h2>
       <p>RStduio -> Azure ML Studio</p>
-      <img src="/data/R-AzureML.PNG" />
+      <!-- <img src="/data/R-AzureML.PNG" /> -->
+      <% include r-ml.ejs %>
       <hr/>
 
-      <b>4. Deploy R model to Web Service (The Structed Way)</b>
+      <h2>4. Deploy R model to Web Service (The Structed Way)</h2>
       <p>RStduio -> New R Package -> Azure ML Studio -> Publishing Web Service</p>
       <img src="/data/R-Webservice.PNG" />
-      <!--TODO: replace predictoR -->
+      <% include r-ws.ejs %>
 
     </div>
     <h3>6. <span class="title" onclick="showOrHide(6)">Translate</span> * </h3>
