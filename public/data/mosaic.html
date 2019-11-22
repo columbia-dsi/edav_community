@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Mosaic</title>
+
+	<script src="https://d3js.org/d3.v5.min.js"></script> <!-- link to D3 library -->
+<!-- 
+	<script src="/js/d3-components-0.0.5.min.js"></script>
+	<style type="text/css">
+		h1 {
+			color: red;
+		}
+
+		/* CSS styling */
+		p {
+			color: blue;
+		}
+	</style> -->
+
+	<!-- <script>
+		setInterval(function () { var myColors = ['#ffffe6', '#e6ffff', '#e6e6ff', '#ffe6ff', '#e6ffe6', '#e6f2ff']; var randomize = Math.floor(Math.random() * myColors.length); document.body.style.backgroundColor = myColors[randomize]; d3.select("rect").attr('fill', myColors[randomize]), d3.select("circle").transition().duration(500).attr('r', randomize * 10); d3.select("ellipse").transition().duration(1000).attr('rx', randomize * 30), d3.select("ellipse").transition().duration(1000).attr('ry', randomize * 20) }, 1000)
+	</script> -->
+
+</head>
+
+<body>
+	<svg width="500" height="400">
+		<rect x = "50" 
+			y = "0" 
+			width = "98"
+			height = "330"
+			fill = "lightgray">
+		</rect>
+		<rect x = "20" 
+            y = "300"
+            width = "98"
+            height = "70"
+            fill = "gray"
+            transform = "translate(30 30)">
+		 </rect>
+		 <rect x = "125" 
+            y = "-30"
+            width = "302"
+            height = "174"
+            fill = "lightgray"
+            transform = "translate(30 30)">
+		 </rect>
+		 <rect x = "125" 
+            y = "145"
+            width = "302"
+            height = "226"
+            fill = "gray"
+            transform = "translate(30 30)">
+		 </rect>
+		 <text x="0" y="200" font-family="sans-serif" font-size="12px" >Democrat</text>
+		 <text x="0" y="360" font-family="sans-serif" font-size="12px" >Republican</text>
+		 <text x="80" y="10" font-family="sans-serif" font-size="12px" >Female</text>
+		 <text x="280" y="10" font-family="sans-serif" font-size="12px" >Male</text>
+	</svg>
+
+	<!-- <div id="mosaic-plot-default"></div>
+	<div id="mosaic-plot-customized"></div>
+	<script>
+	d3.csv('legislators-current.csv', function (data) {
+		d3.mosaicPlot(data, { id: 'mosaic-plot-default' });
+	});
+	d3.csv('legislators-current.csv', function (data) {
+		d3.shuffle(data);
+		d3.mosaicPlot(data, {
+		id: 'mosaic-plot-customized',
+		columns: ['1st', '2nd', '3rd', 'crew'],
+		rows: ['female', 'male'],
+		series: ['no', 'yes'],
+		colorScheme: ['#e2272a', '#00a037'],
+		scaleZ: {
+			paddingMidst: 0.02
+		},
+		labels: {
+			show: true
+		},
+		tooltip: {
+			html: function (d) {
+			var html = 'class: ' + d.column + '&lt;br/&gt;sex: ' + d.row;
+			if (d.series) {
+				html += '&lt;br/&gt;survived: ' + d.series;
+			}
+			return html + '&lt;br/&gt;count: ' + d.value;
+			}
+		},
+		stroke: 'currentColor'
+		});
+	});
+	</script> -->
+
+</body>
+
+</html>

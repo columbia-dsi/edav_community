@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Five Green Circles</title>
+
+		<script src="https://d3js.org/d3.v5.min.js"></script>  <!-- link to D3 Version 5 library -->
+
+
+	</head>
+
+	<body>
+    <h1>Five Green Circles</h1>
+		<svg width="1000" height="800">
+			<rect x="0" y="0" width="500" height="400" fill="aliceblue"></rect>
+			<circle cx="100" cy="100" r="20" fill="green"></circle>
+			<circle cx="100" cy="150" r="20" fill="green"></circle>
+			<circle id="henry" cx="100" cy="200" r="20" fill="green"></circle>
+			<circle class="apple" cx="100" cy="250" r="20" fill="green"></circle>
+			<circle class="apple" cx="100" cy="300" r="20" fill="green"></circle>
+		</svg>
+
+		<script>
+			var dataset = [50, 80, 110, 140];
+			circ = d3.select("svg").selectAll("circle");
+			// JavaScript / D3 will go here
+			circ.data(dataset);
+			circ.data();  // now we see data
+			circ.attr("fill","blue");
+
+
+			circ2 = d3.select("svg").selectAll("circle").data(dataset);
+
+			circ2.attr("fill", "red");
+
+			//d3.select("svg").selectAll("circle").data([90, 230, 140, 75, 180, 25]);
+			d3.select("svg").selectAll("circle").data();
+
+			//d3.select("svg").selectAll("circle").attr("fill",  d => (d%20 === 0)? 'blue': 'red');
+
+			//TEST:  why only the last animation is respected???	
+			circ2.transition().duration(2000).attr("cx", d => 2 * d);
+
+
+
+
+			var svg = d3.select("svg");
+			var circ = svg.selectAll("circle");
+			var allcirc = circ.data([123, 52, 232, 90, 34, 12, 189, 110])
+				.enter()  // 2 placeholders
+					.append("circle")  // placeholders -> circles
+					.attr("cx", "100")  // acts on enter selection only
+					.attr("cy", (d, i) => (i - 5) * 50)
+					.attr("r", "20")
+					.attr("fill", "red")
+				.merge(circ)  // combines enter and update selections
+				
+			allcirc.transition() // acts on all 8 circles
+					.duration(3000)
+					.attr("cx", "400")
+					.attr("fill", "purple");
+
+			allcirc.transition() // acts on all 8 circles
+				.duration(3000)
+				.attr("cx", "50");
+	
+
+		
+
+		</script>
+		
+
+	</body>
+
+</html>
